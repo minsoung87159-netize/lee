@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이민성 포트폴리오</title>
+<style>
+:root{
+  --ink:#0f2433; --tide:#f3f7f8; --paper:#ffffff; --sea:#127a86; --deep:#0a4f5c; --sand:#e9e0cc; --muted:#51656f; --line:#d3dfe3;
+  --font:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--ink:#e8f1f3; --tide:#0b1a24; --paper:#112a38; --sea:#4fc3cf; --deep:#7fd6df; --sand:#3a3626; --muted:#9db3bc; --line:#24414f;}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:var(--font);background:var(--tide);color:var(--ink);line-height:1.75;font-size:17px;word-break:keep-all}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+/* nav */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--tide) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;text-decoration:none;letter-spacing:-.02em}
+nav ul{display:flex;gap:4px;list-style:none}
+nav a{display:block;padding:8px 14px;border-radius:999px;text-decoration:none;font-size:15px;color:var(--muted);transition:background .2s,color .2s}
+nav a:hover{background:var(--line);color:var(--ink)}
+nav a.on{background:var(--ink);color:var(--tide)}
+.burger{display:none;background:none;border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:10px;font-size:20px;cursor:pointer}
+
+/* hero */
+.hero{position:relative;background:var(--deep);color:#f3f7f8;padding:96px 0 150px;overflow:hidden}
+@media (prefers-color-scheme:dark){.hero{background:#0a3a46}}
+.hero h1{font-size:clamp(56px,13vw,132px);line-height:1.02;letter-spacing:-.05em;font-weight:900;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero p.lead{max-width:30em;margin-top:28px;font-size:clamp(18px,2.4vw,22px);color:#cfe6ea;animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.hero .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;animation:rise .9s .3s cubic-bezier(.2,.7,.2,1) both}
+.tag{border:1px solid #5aa9b4;border-radius:999px;padding:6px 16px;font-size:15px}
+.cta{display:inline-block;margin-top:36px;background:var(--sand);color:#0f2433;padding:13px 26px;border-radius:12px;font-weight:700;text-decoration:none;animation:rise .9s .45s cubic-bezier(.2,.7,.2,1) both}
+.waves{position:absolute;left:0;right:0;bottom:-1px;width:200%;height:90px;animation:drift 18s linear infinite}
+.waves path{fill:var(--tide)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes drift{to{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:84px 0}
+section.alt{background:var(--paper)}
+h2{font-size:clamp(28px,5vw,40px);letter-spacing:-.03em;line-height:1.25;margin-bottom:12px}
+.sub{color:var(--muted);margin-bottom:40px;max-width:36em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px}
+section.alt .card{background:var(--tide)}
+.card h3{font-size:19px;margin-bottom:8px}
+.card .k{display:block;font-size:14px;color:var(--sea);font-weight:700;margin-bottom:6px}
+.card p{color:var(--muted);font-size:16px}
+.todo{border-style:dashed;background:transparent!important}
+.todo p{font-style:italic}
+
+dl.facts{display:grid;grid-template-columns:110px 1fr;gap:14px 20px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:560px}
+dl.facts dt{color:var(--sea);font-weight:700}
+.side{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.photo{width:180px;height:180px;border-radius:50%;overflow:hidden;background:var(--sand);display:grid;place-items:center;font-size:64px;font-weight:900;color:var(--deep);border:4px solid var(--paper);box-shadow:0 0 0 2px var(--sea)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+
+.path{list-style:none;border-left:3px solid var(--sea);margin-left:10px}
+.path li{position:relative;padding:0 0 34px 32px}
+.path li::before{content:"";position:absolute;left:-11px;top:8px;width:19px;height:19px;border-radius:50%;background:var(--tide);border:4px solid var(--sea)}
+section.alt .path li::before{background:var(--paper)}
+.path li:last-child{padding-bottom:0}
+.path strong{display:block;font-size:19px}
+.path span{color:var(--muted);font-size:16px}
+
+.goal{background:var(--ink);color:var(--tide);border-radius:26px;padding:clamp(32px,6vw,64px)}
+.goal h3{font-size:clamp(26px,5vw,40px);line-height:1.3;letter-spacing:-.03em}
+.goal p{margin-top:16px;color:color-mix(in srgb,var(--tide) 75%,transparent);max-width:34em}
+
+footer{padding:36px 0 56px;color:var(--muted);font-size:15px}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:24px}
+.btn{font:inherit;font-size:15px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 18px;border-radius:10px;cursor:pointer}
+.btn.pri{background:var(--sea);border-color:var(--sea);color:#fff;font-weight:700}
+body.editing [data-edit]{outline:2px dashed var(--sea);outline-offset:4px;border-radius:4px}
+
+@media (max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:64px;background:var(--tide);border-bottom:1px solid var(--line);display:none}
+  nav.open{display:block}
+  nav ul{flex-direction:column;padding:12px 24px 20px}
+  nav a{padding:12px 14px}
+  .about{grid-template-columns:1fr}
+  section{padding:64px 0}
+  .hero{padding:64px 0 120px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#home">이민성</a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav id="nav" aria-label="주요 메뉴">
+      <ul>
+        <li><a href="#home">홈</a></li>
+        <li><a href="#about">자기소개</a></li>
+        <li><a href="#skills">역량</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#career">진로</a></li>
+        <li><a href="#goal">목표</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home" style="padding-top:96px">
+  <div class="wrap">
+    <h1 data-edit>이민성</h1>
+    <p class="lead" data-edit>레저해양스포츠를 전공하며 운동과 재활에 관심을 두고, 선수 트레이너(AT)를 목표로 하고 있습니다.</p>
+    <div class="tags">
+      <span class="tag">레저해양스포츠 전공</span>
+      <span class="tag">운동</span>
+      <span class="tag">재활</span>
+      <span class="tag">AT 지망</span>
+    </div>
+    <a class="cta" href="#about">자기소개 보기</a>
+  </div>
+  <svg class="waves" viewBox="0 0 2400 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 45 Q150 0 300 45 T600 45 T900 45 T1200 45 T1500 45 T1800 45 T2100 45 T2400 45 V90 H0Z"/>
+  </svg>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>자기소개</h2>
+      <p class="sub" data-edit>안녕하세요, 레저해양스포츠를 전공하고 있는 이민성입니다. 운동과 재활 분야에 관심이 있으며, 선수의 몸을 관리하고 회복을 돕는 선수 트레이너(AT)가 되는 것이 목표입니다.</p>
+      <p class="sub todo-note" data-edit style="color:var(--muted)">※ 자기소개 문구를 더 구체적으로 쓰고 싶다면 이 영역을 직접 수정해 보세요.</p>
+    </div>
+    <div class="side">
+      <div class="photo"><img id="pimg" alt="이민성 프로필 사진" hidden><span id="pph" aria-hidden="true">이</span></div>
+      <input type="file" id="pfile" accept="image/*" hidden>
+      <button class="btn" id="pbtn" type="button">사진 추가</button>
+    <dl class="facts">
+      <dt>이름</dt><dd data-edit>이민성</dd>
+      <dt>전공</dt><dd data-edit>레저해양스포츠</dd>
+      <dt>관심분야</dt><dd data-edit>운동, 재활</dd>
+      <dt>목표</dt><dd data-edit>AT(선수 트레이너)</dd>
+    </dl>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="skills">
+  <div class="wrap">
+    <h2>역량</h2>
+    <p class="sub">현재 제공된 정보를 바탕으로 정리했고, 강점과 경험은 채워 넣을 수 있도록 비워 두었습니다.</p>
+    <div class="grid">
+      <div class="card"><span class="k">전공</span><h3>레저해양스포츠</h3><p data-edit>전공 분야에서 학습하고 있습니다.</p></div>
+      <div class="card"><span class="k">관심분야</span><h3>운동</h3><p data-edit>운동에 관심을 가지고 있습니다.</p></div>
+      <div class="card"><span class="k">관심분야</span><h3>재활</h3><p data-edit>재활에 관심을 가지고 있습니다.</p></div>
+      <div class="card todo"><span class="k">강점</span><h3>추가 예정</h3><p data-edit>본인의 강점을 이곳에 적어 주세요.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2>프로젝트</h2>
+    <p class="sub">참여한 프로젝트나 경험이 생기면 이곳에 추가할 수 있습니다.</p>
+    <div class="grid">
+      <div class="card todo"><span class="k">프로젝트 1</span><h3 data-edit>제목 추가 예정</h3><p data-edit>기간, 역할, 내용을 이곳에 적어 주세요.</p></div>
+      <div class="card todo"><span class="k">프로젝트 2</span><h3 data-edit>제목 추가 예정</h3><p data-edit>기간, 역할, 내용을 이곳에 적어 주세요.</p></div>
+      <div class="card todo"><span class="k">경험</span><h3 data-edit>경험 추가 예정</h3><p data-edit>활동, 자격, 수상 등을 이곳에 적어 주세요.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="career">
+  <div class="wrap">
+    <h2>진로</h2>
+    <p class="sub">전공과 관심분야에서 목표까지 이어지는 방향입니다.</p>
+    <ol class="path">
+      <li><strong>레저해양스포츠 전공</strong><span>현재 전공 분야를 배우고 있습니다.</span></li>
+      <li><strong>운동과 재활에 대한 관심</strong><span>관심분야를 더 깊이 공부하고 경험을 쌓아 갑니다.</span></li>
+      <li><strong>선수 트레이너(AT)</strong><span>선수의 몸을 관리하고 회복을 돕는 일이 목표입니다.</span></li>
+    </ol>
+    <p class="sub" style="margin-top:28px" data-edit>※ 세부 계획(자격, 일정 등)은 추가할 수 있습니다.</p>
+  </div>
+</section>
+
+<section id="goal">
+  <div class="wrap">
+    <div class="goal">
+      <h3 data-edit>선수 트레이너(AT)로서 선수가 건강하게 뛸 수 있도록 돕겠습니다.</h3>
+      <p data-edit>운동과 재활에 대한 관심을 바탕으로 꾸준히 배우고 성장하겠습니다.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="tools">
+      <span>© 이민성 포트폴리오</span>
+      <span>
+        <button class="btn" id="edit">내용 편집</button>
+        <button class="btn pri" id="save">index.html 저장</button>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), burger=document.getElementById('burger');
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open);
+    burger.textContent=open?'✕':'☰';
+  });
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('open');burger.setAttribute('aria-expanded','false');burger.textContent='☰';});
+  });
+
+  var links={};
+  nav.querySelectorAll('a').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        Object.keys(links).forEach(function(k){links[k].classList.remove('on');});
+        if(links[e.target.id])links[e.target.id].classList.add('on');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  Object.keys(links).forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+
+  var pfile=document.getElementById('pfile'), pbtn=document.getElementById('pbtn');
+  pbtn.addEventListener('click',function(){pfile.click();});
+  pfile.addEventListener('change',function(){
+    var f=pfile.files[0]; if(!f||f.type.indexOf('image/')!==0)return;
+    var r=new FileReader();
+    r.onload=function(){
+      var im=new Image();
+      im.onload=function(){
+        var m=600, k=Math.min(1,m/Math.max(im.width,im.height));
+        var c=document.createElement('canvas'); c.width=Math.round(im.width*k); c.height=Math.round(im.height*k);
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        var pi=document.getElementById('pimg');
+        pi.src=c.toDataURL('image/jpeg',0.85); pi.hidden=false;
+        document.getElementById('pph').hidden=true;
+        pbtn.textContent='사진 변경';
+      };
+      im.src=r.result;
+    };
+    r.readAsDataURL(f);
+  });
+
+  var editBtn=document.getElementById('edit'), editing=false;
+  editBtn.addEventListener('click',function(){
+    editing=!editing;
+    document.body.classList.toggle('editing',editing);
+    document.querySelectorAll('[data-edit]').forEach(function(el){
+      if(editing)el.setAttribute('contenteditable','true');else el.removeAttribute('contenteditable');
+    });
+    editBtn.textContent=editing?'편집 끝내기':'내용 편집';
+  });
+
+  document.getElementById('save').addEventListener('click',function(){
+    var clone=document.documentElement.cloneNode(true);
+    clone.querySelectorAll('[contenteditable]').forEach(function(el){el.removeAttribute('contenteditable');});
+    clone.querySelector('body').classList.remove('editing');
+    var nv=clone.querySelector('#nav'); if(nv)nv.classList.remove('open');
+    clone.querySelectorAll('nav a.on').forEach(function(a){a.classList.remove('on');});
+    var html='<!DOCTYPE html>\n'+clone.outerHTML;
+    var blob=new Blob([html],{type:'text/html;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='index.html';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+  });
+})();
+</script>
+</body>
+</html>
